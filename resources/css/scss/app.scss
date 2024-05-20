@@ -1,13 +1,37 @@
 .box-container {
     .box {
+        padding: 50px;
+        font-weight: 100;
 
+        ul {
+            list-style-type: circle;
+            margin-left: 15px;
+        }
+
+        h2 {
+            font-size: 1.4rem;
+            font-weight: bold;
+            padding: 0 0 10px 0;
+        }
     }
 
     .red-box {
+        background-color: #FEE7E8;
+        border: 5px solid #ec003b80;
+        color: #BC5468;
 
+        h2 {
+            color: #C57482;
+        }
     }
 
-    .gree-box {
+    .green-box {
+        background-color: #DAFCE9;
+        border: 5px solid #10926080;
+        color: #1E6B4E;
 
+        h2 {
+            color: #468269;
+        }
     }
 }

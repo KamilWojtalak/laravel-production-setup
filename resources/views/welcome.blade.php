@@ -62,7 +62,8 @@
             <section>
                 Tutaj dajesz styling z red box i green box
                 <div class="box box-container flex flex-row items-center justify-center">
-                    <div class="red-box mx-6">
+                    <div class="box red-box mx-6">
+                        <h2>Tytuł twojego błędu</h2>
                         <ul>
                             <li>Pierwszy twój problem, który rozwiążę</li>
                             <li>Drugi twój problem, który rozwiążę</li>
@@ -71,6 +72,7 @@
                         </ul>
                     </div>
                     <div class="box green-box mx-6">
+                        <h2>Tytuł twojego rozwiązania</h2>
                         <ul>
                             <li>Tu jest moje pierwsze rozwiązanie</li>
                             <li>Tu jest moje drugie rozwiązanie</li>
