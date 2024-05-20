@@ -56,7 +56,7 @@
                     </nav>
                 </menu>
             </div>
-            <section>
+            <section class="title-section">
                 <h1>{{ __('Tutaj jest miejsce na tytuł, który zwróci uwagę klienta i wywoła w nim emocje.') }}</h1>
             </section>
             <section>

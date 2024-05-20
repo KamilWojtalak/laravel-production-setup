@@ -1,3 +1,16 @@
+.title-section {
+    display: flex;
+    justify-content: center;
+
+    h1 {
+        font-weight: bold;
+        font-size: 3rem !important;
+        width: 70%;
+        text-align: center;
+    }
+}
+
+
 .box-container {
     .box {
         padding: 50px;
@@ -21,7 +34,7 @@
         color: #BC5468;
 
         h2 {
-            color: #C57482;
+            color: #b92c44;
         }
     }
 
