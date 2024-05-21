@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>{{ $title ?? 'Nie nadałeś title' }}</title>
+    <title>{{ $title ?? __('No title') }}</title>
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
@@ -18,16 +18,9 @@
 
     <div class="">
         <div class="relative min-h-screen flex flex-col items-center justify-center">
-            <section class="relative">
-                <div class="container">
-                    <x-public.navigation></x-public.navigation>
-                </div>
-
-            </section>
+            <x-public.navigation></x-public.navigation>
 
             {{ $slot }}
-
         </div>
 </body>
-
 </html>
