@@ -15,14 +15,15 @@ class FeedbackController extends Controller
     public function store(StoreFeedbackRequest $request)
     {
         /**
-         * flash message trzeba dodać
+         * flash message trzeba dodać,
+         *
+         * zrób validation unhappy path
          *
          * TODO wysyłanie maili itp,
          * recaptcha
          */
 
-
-        dd($request->validated());
+        $content = $request->get('content');
 
         return redirect()->to('feedback.index')->with('success', __('Thank your for your feedback!'));
     }
