@@ -27,7 +27,7 @@ class Feedback extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Feedback',
+            subject: 'Feedback from ' . config('app.name'),
         );
     }
 
@@ -37,7 +37,7 @@ class Feedback extends Mailable
     public function content(): Content
     {
         return new Content(
-            view: 'view.name',
+            view: 'emails.feedback',
         );
     }
 
