@@ -15,7 +15,9 @@
 </head>
 
 <body class="font-sans ">
-
+    <div class="flash flash-success">
+        fdsaadfs
+    </div>
     <div class="relative min-h-screen flex flex-col items-center justify-center">
         <x-public.navigation></x-public.navigation>
 
