@@ -25,6 +25,6 @@ class FeedbackController extends Controller
 
         $content = $request->get('content');
 
-        return redirect()->to('feedback.index')->with('success', __('Thank your for your feedback!'));
+        return redirect()->route('feedback.index')->with('success', __('Thank your for your feedback!'));
     }
 }
