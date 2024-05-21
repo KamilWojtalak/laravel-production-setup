@@ -8,5 +8,6 @@ Route::get('/', function () {
 });
 
 Route::get('/feedback', [FeedbackController::class, 'index'])->name('feedback.index');
+Route::post('/feedback', [FeedbackController::class, 'store'])->name('feedback.store');
 
 require __DIR__.'/auth.php';
