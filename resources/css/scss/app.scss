@@ -423,7 +423,8 @@ nav {
 
 .flash {
     position: absolute;
-    background-color: #17fa76;
+    background-color: #00ff6a;
+    border: 4px solid #03cf58;
     top: 10%;
     left: 50%;
 
@@ -440,5 +441,6 @@ nav {
 
 @keyframes hideFlash {
     0% { opacity: 1; }
+    90% { opacity: 1; }
     100% { opacity: 0; }
 }
