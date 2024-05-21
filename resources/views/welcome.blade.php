@@ -103,7 +103,7 @@
             </section>
 
             <div class="dashboard-section dashboard-pricing flex flex-row items-center justify-between">
-                <div class="container">
+                <div class="container flex flex-row items-center justify-center">
                     <div class="pricing-box pricing-left mr-10">
                         <div class="price flex items-center">
                             <p class="old pr-2"><s>$99</s></p>
@@ -116,7 +116,7 @@
                             <li>Korzyść 3</li>
                         </ul>
                         <a href="/pricing" class="dashboard-cta">Get My Product</a>
-                        <p>One-time payment, <u>then it's your forever</u></p>
+                        <p class="side-note">One-time payment, <u>then it's yours forever</u></p>
                     </div>
                     <div class="pricing-box pricing-right">
                         <div class="price flex items-center">
@@ -130,7 +130,7 @@
                             <li>Korzyść 3 więszka</li>
                         </ul>
                         <a href="/pricing" class="dashboard-cta">Get My Product</a>
-                        <p>One-time payment, <u>then it's your forever</u></p>
+                        <p class="side-note">One-time payment, <u>then it's yours forever</u></p>
                     </div>
                 </div>
             </div>

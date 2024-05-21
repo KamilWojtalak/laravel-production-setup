@@ -12,6 +12,7 @@
 
 
 .box-container {
+    height: 100%;
     .box {
         padding: 50px;
         font-weight: 100;
@@ -57,6 +58,8 @@
 
 .container {
     max-width: 80%;
+    height: auto;
+    margin: 0 auto;
 }
 
 .main-dashboard-section {
@@ -205,7 +208,14 @@
     background-color: #F7F8FD;
 
     .pricing-box {
-        border: 1px solid black;
+        border-radius: 10px;
+        padding: 50px;
+        background-color: white;
+
+        ul {
+            margin: 10px 0 15px 15px;
+            list-style-type: circle;
+        }
 
         .old {
             color: rgba(0, 0, 0, 0.486);
@@ -223,5 +233,23 @@
             align-self: flex-end;
             font-weight: bold;
         }
+
+        .dashboard-cta {
+            margin: 0 0 10px 0;
+        }
+
+        p.side-note {
+            font-size: .8rem;
+            text-align: center;
+            color: rgba(0, 0, 0, 0.7);
+        }
+    }
+
+    .pricing-left {
+        border: 2px solid rgba(2, 185, 2, 0.4);
+    }
+
+    .pricing-right {
+        border: 3px solid rgba(2, 185, 2, .8);
     }
 }
