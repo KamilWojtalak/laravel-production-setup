@@ -15,10 +15,6 @@ class FeedbackController extends Controller
     public function store(StoreFeedbackRequest $request)
     {
         /**
-         * flash message trzeba dodać,
-         *
-         * zrób validation unhappy path
-         *
          * TODO wysyłanie maili itp,
          * recaptcha
          */
