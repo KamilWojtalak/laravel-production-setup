@@ -3,19 +3,21 @@
         Strona główna title
     </x-slot>
 
-    <section class="title-section">
-        <p>{{ __('Powered by Stripe') }}</p>
-        <h1>{{ __('Tutaj jest miejsce na tytuł, który zwróci uwagę klienta i wywoła w nim emocje.') }}
-        </h1>
-        <p class="py-5">
-            {{ __('Focus on your startup, not the invoices Let your customers generate, edit, and download Stripe invoices, so you don’t have to.') }}
-        </p>
-        <ul class="py-5">
-            <li>1-minute no-code setup</li>
-            <li>Reduce customer support</li>
-            <li>No 0.4% Stripe invoice fee</li>
-        </ul>
-        <a href="/pricing" class="dashboard-cta">Get My Product</a>
+    <section class="dashboard-section main-dashboard-section">
+        <section class="title-section ">
+            <p>{{ __('Powered by Stripe') }}</p>
+            <h1>{{ __('Tutaj jest miejsce na tytuł, który zwróci uwagę klienta i wywoła w nim emocje.') }}
+            </h1>
+            <p class="py-5">
+                {{ __('Focus on your startup, not the invoices Let your customers generate, edit, and download Stripe invoices, so you don’t have to.') }}
+            </p>
+            <ul class="py-5">
+                <li>1-minute no-code setup</li>
+                <li>Reduce customer support</li>
+                <li>No 0.4% Stripe invoice fee</li>
+            </ul>
+            <a href="/pricing" class="dashboard-cta">Get My Product</a>
+        </section>
     </section>
 
     <section class="dashboard-section flex">

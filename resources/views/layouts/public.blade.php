@@ -18,7 +18,7 @@
 
     <div class="">
         <div class="relative min-h-screen flex flex-col items-center justify-center">
-            <section class="dashboard-section main-dashboard-section relative">
+            <section class="relative">
                 <div class="container">
                     <x-public.navigation></x-public.navigation>
                 </div>
