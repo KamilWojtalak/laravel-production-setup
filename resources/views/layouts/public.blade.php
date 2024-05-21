@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
+    {{-- TODO dynamicznie z slota --}}
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Fonts -->
