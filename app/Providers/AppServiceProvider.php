@@ -48,5 +48,4 @@ class AppServiceProvider extends ServiceProvider
         </script>
         HTML;
     }
-
 }
