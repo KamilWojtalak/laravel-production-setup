@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\Public\StoreFeedbackRequest;
 use Illuminate\Http\Request;
 
 class FeedbackController extends Controller
@@ -11,11 +12,18 @@ class FeedbackController extends Controller
         return view('feedback.index');
     }
 
-    public function store(Request $request)
+    public function store(StoreFeedbackRequest $request)
     {
         /**
-         * TODO wysyłanie maili itp
+         * flash message trzeba dodać
+         *
+         * TODO wysyłanie maili itp,
+         * recaptcha
          */
-        dd($request->all());
+
+
+        dd($request->validated());
+
+        return redirect()->to('feedback.index')->with('success', __('Thank your for your feedback!'));
     }
 }
