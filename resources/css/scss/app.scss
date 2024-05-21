@@ -1,11 +1,22 @@
+h1 {
+    font-size: 3rem !important;
+    width: 70%;
+    font-weight: bold;
+    margin: 0;
+    text-align: center;
+}
+
+.title-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .title-section {
     display: flex;
     justify-content: center;
 
     h1 {
-        font-weight: bold;
-        font-size: 3rem !important;
-        width: 70%;
         text-align: center;
     }
 }
@@ -13,6 +24,7 @@
 
 .box-container {
     height: 100%;
+
     .box {
         padding: 50px;
         font-weight: 100;
@@ -50,8 +62,7 @@
     }
 }
 
-.dashboard-section
-{
+.dashboard-section {
     min-height: 100vh;
     width: 100%;
 }
@@ -145,7 +156,7 @@
     --tw-ring-inset: ;
     --tw-ring-offset-width: 0px;
     --tw-ring-offset-color: #fff;
-    --tw-ring-color: rgba(59,130,246,.5);
+    --tw-ring-color: rgba(59, 130, 246, .5);
     --tw-ring-offset-shadow: 0 0 #0000;
     --tw-ring-shadow: 0 0 #0000;
     --tw-blur: ;
@@ -167,10 +178,10 @@
     --tw-backdrop-saturate: ;
     --tw-backdrop-sepia: ;
     text-decoration: inherit;
-    text-transform: capitalize!important;
-    --tw-shadow: 0 1px 3px 0 rgba(0,0,0,.1),0 1px 2px -1px rgba(0,0,0,.1)!important;
-    --tw-shadow-colored: 0 1px 3px 0 var(--tw-shadow-color),0 1px 2px -1px var(--tw-shadow-color)!important;
-    box-shadow: var(--tw-ring-offset-shadow,0 0 #0000),var(--tw-ring-shadow,0 0 #0000),var(--tw-shadow)!important;
+    text-transform: capitalize !important;
+    --tw-shadow: 0 1px 3px 0 rgba(0, 0, 0, .1), 0 1px 2px -1px rgba(0, 0, 0, .1) !important;
+    --tw-shadow-colored: 0 1px 3px 0 var(--tw-shadow-color), 0 1px 2px -1px var(--tw-shadow-color) !important;
+    box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow) !important;
     display: inline-flex;
     flex-shrink: 0;
     cursor: pointer;
@@ -179,10 +190,10 @@
     align-items: center;
     justify-content: center;
     text-align: center;
-    transition-property: color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,backdrop-filter,-webkit-backdrop-filter;
-    transition-timing-function: cubic-bezier(0,0,.2,1);
+    transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-backdrop-filter;
+    transition-timing-function: cubic-bezier(0, 0, .2, 1);
     transition-duration: .2s;
-    border-radius: var(--rounded-btn,.5rem);
+    border-radius: var(--rounded-btn, .5rem);
     height: 3rem;
     padding-left: 1rem;
     padding-right: 1rem;
@@ -192,8 +203,8 @@
     gap: .5rem;
     font-weight: 600;
     text-decoration-line: none;
-    border-width: var(--border-btn,1px);
-    animation: button-pop var(--animation-btn,.25s) ease-out;
+    border-width: var(--border-btn, 1px);
+    animation: button-pop var(--animation-btn, .25s) ease-out;
     --tw-border-opacity: 1;
     border-color: hsl(var(--p)/var(--tw-border-opacity));
     --tw-bg-opacity: 1;
@@ -201,7 +212,7 @@
     --tw-text-opacity: 1;
     color: hsl(var(--pc)/var(--tw-text-opacity));
     outline-color: hsl(var(--p)/1);
-    width: 16rem!important;
+    width: 16rem !important;
 }
 
 .dashboard-pricing {
@@ -254,8 +265,145 @@
     }
 }
 
-
 //
 .public-section {
     min-height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.feedback-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    textarea {
+        border-radius: 20px;
+        padding: 20px 30px;
+    }
+
+    button {
+        margin: 20px 0 0 0;
+        width: fit-content;
+        border-radius: 20px;
+        -webkit-text-size-adjust: 100%;
+        tab-size: 4;
+        font-feature-settings: normal;
+        font-variation-settings: normal;
+        -webkit-tap-highlight-color: transparent;
+        color-scheme: light;
+        --btn-focus-scale: 0.95;
+        --border-btn: 1px;
+        --tab-border: 1px;
+        --tab-radius: 0.5rem;
+        --p: 161 93% 35%;
+        --pc: 0 0% 100%;
+        --s: 314 100% 47%;
+        --sc: 314 100% 91%;
+        --a: 197 85% 18%;
+        --ac: 0 0% 100%;
+        --n: 210 43% 95%;
+        --nc: 235 12% 21%;
+        --b1: 0 0% 100%;
+        --b2: 228 56% 98%;
+        --b3: 210 23% 90%;
+        --bc: 235 12% 21%;
+        --pf: 161 93% 27%;
+        --af: 197 85% 30%;
+        --rounded-btn: 0.5rem;
+        font-family: __Gabarito_c39254;
+        font-style: normal;
+        --rt-color-white: #fff;
+        --rt-color-dark: #222;
+        --rt-color-success: #8dc572;
+        --rt-color-error: #be6464;
+        --rt-color-warning: #f0ad4e;
+        --rt-color-info: #337ab7;
+        --rt-opacity: 0.9;
+        box-sizing: border-box;
+        border: 0 solid #e5e7eb;
+        --tw-border-spacing-x: 0;
+        --tw-border-spacing-y: 0;
+        --tw-translate-x: 0;
+        --tw-translate-y: 0;
+        --tw-rotate: 0;
+        --tw-skew-x: 0;
+        --tw-skew-y: 0;
+        --tw-scale-x: 1;
+        --tw-scale-y: 1;
+        --tw-pan-x: ;
+        --tw-pan-y: ;
+        --tw-pinch-zoom: ;
+        --tw-scroll-snap-strictness: proximity;
+        --tw-gradient-from-position: ;
+        --tw-gradient-via-position: ;
+        --tw-gradient-to-position: ;
+        --tw-ordinal: ;
+        --tw-slashed-zero: ;
+        --tw-numeric-figure: ;
+        --tw-numeric-spacing: ;
+        --tw-numeric-fraction: ;
+        --tw-ring-inset: ;
+        --tw-ring-offset-width: 0px;
+        --tw-ring-offset-color: #fff;
+        --tw-ring-color: rgba(59, 130, 246, .5);
+        --tw-ring-offset-shadow: 0 0 #0000;
+        --tw-ring-shadow: 0 0 #0000;
+        --tw-blur: ;
+        --tw-brightness: ;
+        --tw-contrast: ;
+        --tw-grayscale: ;
+        --tw-hue-rotate: ;
+        --tw-invert: ;
+        --tw-saturate: ;
+        --tw-sepia: ;
+        --tw-drop-shadow: ;
+        --tw-backdrop-blur: ;
+        --tw-backdrop-brightness: ;
+        --tw-backdrop-contrast: ;
+        --tw-backdrop-grayscale: ;
+        --tw-backdrop-hue-rotate: ;
+        --tw-backdrop-invert: ;
+        --tw-backdrop-opacity: ;
+        --tw-backdrop-saturate: ;
+        --tw-backdrop-sepia: ;
+        text-decoration: inherit;
+        text-transform: capitalize !important;
+        --tw-shadow: 0 1px 3px 0 rgba(0, 0, 0, .1), 0 1px 2px -1px rgba(0, 0, 0, .1) !important;
+        --tw-shadow-colored: 0 1px 3px 0 var(--tw-shadow-color), 0 1px 2px -1px var(--tw-shadow-color) !important;
+        box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow) !important;
+        display: inline-flex;
+        flex-shrink: 0;
+        cursor: pointer;
+        user-select: none;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-backdrop-filter;
+        transition-timing-function: cubic-bezier(0, 0, .2, 1);
+        transition-duration: .2s;
+        border-radius: var(--rounded-btn, .5rem);
+        height: 3rem;
+        padding-left: 1rem;
+        padding-right: 1rem;
+        font-size: .875rem;
+        line-height: 1em;
+        min-height: 3rem;
+        gap: .5rem;
+        font-weight: 600;
+        text-decoration-line: none;
+        border-width: var(--border-btn, 1px);
+        animation: button-pop var(--animation-btn, .25s) ease-out;
+        --tw-border-opacity: 1;
+        border-color: hsl(var(--p)/var(--tw-border-opacity));
+        --tw-bg-opacity: 1;
+        background-color: hsl(var(--p)/var(--tw-bg-opacity));
+        --tw-text-opacity: 1;
+        color: hsl(var(--pc)/var(--tw-text-opacity));
+        outline-color: hsl(var(--p)/1);
+        width: 16rem !important;
+    }
 }
