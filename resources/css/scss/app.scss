@@ -423,12 +423,9 @@ nav {
 
 .flash {
     position: absolute;
-    background-color: #00ff6a;
-    border: 4px solid #03cf58;
     top: 10%;
     left: 50%;
 
-    color: rgb(97, 97, 97);
     padding: 7px 20px;
     border-radius: 20px;
 
@@ -437,10 +434,30 @@ nav {
     opacity: 1;
     transition: opacity 4s ease-in-out;
     animation: hideFlash 4s forwards;
+
+    &-success {
+        background-color: #00ff6a;
+        border: 4px solid #03cf58;
+        color: rgb(97, 97, 97);
+    }
+
+    &-error {
+        background-color: #fd3d0d;
+        border: 4px solid #c52903;
+        color: white;
+    }
 }
 
 @keyframes hideFlash {
-    0% { opacity: 1; }
-    90% { opacity: 1; }
-    100% { opacity: 0; }
+    0% {
+        opacity: 1;
+    }
+
+    90% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
 }
