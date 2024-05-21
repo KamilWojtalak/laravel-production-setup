@@ -5,7 +5,7 @@
                 <nav>
                     <ul class="flex items-center justify-center">
                         <li class="px-5 flex flex-row items-center justify-center">
-                            <a href="#">Navigation</a>
+                            <a href="/">Home Page</a>
                         </li>
                         <li class="px-5">
                             <a href="#">Navigation</a>
