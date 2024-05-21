@@ -1,5 +1,7 @@
-{{-- Note --}}
-{{-- Tutaj podajesz nazwe class, którą zarejestrowałeś w App/Components --}}
 <x-public-layout>
+    <x-slot name="header">
+        {{ __('Feedback') }}
+    </x-slot>
+
     test
 </x-public-layout>
