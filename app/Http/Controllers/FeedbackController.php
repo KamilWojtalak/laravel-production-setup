@@ -23,7 +23,7 @@ class FeedbackController extends Controller
          * recaptcha
          */
 
-        $request->sendMail();
+        // $request->sendMail();
 
         return redirect()->route('feedback.index')->with('success', __('Thank your for your feedback!'));
     }
