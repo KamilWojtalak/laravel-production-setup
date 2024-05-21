@@ -14,12 +14,7 @@ class FeedbackController extends Controller
 
     public function store(StoreFeedbackRequest $request)
     {
-        /**
-         * TODO wysyłanie maili itp,
-         * recaptcha
-         */
-
-        // $request->sendMail();
+        $request->sendMail();
 
         return redirect()->route('feedback.index')->with('success', __('Thank your for your feedback!'));
     }

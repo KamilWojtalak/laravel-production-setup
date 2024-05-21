@@ -3,6 +3,7 @@
 namespace App\Http\Requests\Public;
 
 use App\Mail\Feedback;
+use App\Rules\Recaptcha;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Mail;
 
@@ -16,7 +17,8 @@ class StoreFeedbackRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'content' => 'required|min:5'
+            'content' => 'required|min:5',
+            'g-recaptcha-response' => ['required' , new Recaptcha]
         ];
     }
 
