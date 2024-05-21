@@ -2,10 +2,8 @@
 
 namespace App\Providers;
 
-use App\Rules\Recaptcha;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
-use Illuminate\Support\Facades\Validator;
 
 class AppServiceProvider extends ServiceProvider
 {
