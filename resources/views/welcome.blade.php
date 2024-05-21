@@ -56,6 +56,11 @@
                                 </nav>
                             @endif
                         </header>
+                        <div class="feedback-container">
+                            <a href="{{ route('feedback.index') }}">
+                                {{ __("Feedback") }}
+                            </a>
+                        </div>
                     </div>
 
                     <section class="title-section">
