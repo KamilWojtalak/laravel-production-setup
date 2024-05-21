@@ -1,5 +1,5 @@
 <div class="">
-    <h2>Test email h2 header</h2>
+    <h2>To jest mail ze strony {{ config('app.name') }}</h2>
     <p>
         {{ $content }}
     </p>
