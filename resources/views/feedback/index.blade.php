@@ -10,8 +10,8 @@
             </div>
             <form action="{{ route('feedback.store') }}" method="post" class="feedback-form mb-20">
                 @csrf
-                <textarea name="content" id="" cols="30" rows="10"
-                    placeholder="{{ __('If you want me to reply you back, include your email inside the input.') }}"></textarea>
+                <x-forms.textarea name='content' placeholder="{{ __('If you want me to reply you back, include your email inside the input.') }}"></x-forms.textarea>
+
                 <button>Submit</button>
             </form>
         </div>
