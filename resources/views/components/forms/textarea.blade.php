@@ -6,4 +6,4 @@
     </p>
 @enderror
 
-<textarea name="{{ $name }}" id="" cols="30" rows="10" placeholder="{{ $placeholder }}"></textarea>
+<textarea name="{{ $name }}" id="" cols="30" rows="10" placeholder="{{ $placeholder }}">{{ old($name) }}</textarea>
