@@ -1,4 +1,4 @@
-<section class="relative">
+<section class="relative w-full">
     <div class="container">
         <div class="flex items-center justify-between">
             <menu>
