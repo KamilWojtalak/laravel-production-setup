@@ -16,6 +16,8 @@ class FeedbackController extends Controller
     {
         $request->sendMail();
 
-        return redirect()->route('feedback.index')->with('success', __('Thank your for your feedback!'));
+        return redirect()
+            ->route('feedback.index')
+            ->with('success', __('Thank your for your feedback!'));
     }
 }
