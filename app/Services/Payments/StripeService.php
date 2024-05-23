@@ -34,14 +34,14 @@ class StripeService
                 'price_data' => [
                     'currency' => 'PLN',
                     // 'currency' => 'USD',
-                    // Kasa
-                    'unit_amount_decimal' => 1000.00,
+                    // Kasa, minimum 2zł
+                    'unit_amount_decimal' => 200.00,
                     'product_data' => [
                         'name' => 'Nazwa wyświetlana produktu dla użytkownika',
                         'description' => 'Opis wyświetlany dla użytkownika',
                         'images' => [
-                            'https://place-hold.it/50',
                             'https://place-hold.it/100',
+                            'https://place-hold.it/50',
                             'https://place-hold.it/100/50',
                         ],
                         'metadata' => [
@@ -51,7 +51,6 @@ class StripeService
                         ]
                     ],
                 ],
-                // 'price' => 'pr_1234',
                 'quantity' => 1,
             ]],
             // NOTE może też być subscription
