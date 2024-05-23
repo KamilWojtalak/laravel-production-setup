@@ -10,6 +10,8 @@ class Order extends Model
 {
     use HasFactory;
 
+    CONST PAYMENT_PROVIDER_STRIPE = 'stripe';
+
     protected $guarded = [];
 
     public function user(): HasOne
