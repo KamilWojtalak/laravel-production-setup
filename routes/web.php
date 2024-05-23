@@ -12,5 +12,7 @@ Route::get('/feedback', [FeedbackController::class, 'index'])->name('feedback.in
 Route::post('/feedback', [FeedbackController::class, 'store'])->name('feedback.store');
 
 Route::get('/stripe', [StripeController::class, 'index'])->name('stripe.index');
+Route::get('/stripe/success', [StripeController::class, 'success'])->name('stripe.success');
+Route::get('/stripe/cancel', [StripeController::class, 'cancel'])->name('stripe.cancel');
 
 require __DIR__.'/auth.php';
