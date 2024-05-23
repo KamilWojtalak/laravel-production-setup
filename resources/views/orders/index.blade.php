@@ -8,7 +8,7 @@
             <p>orders</p>
             @forelse ($orders as $order)
                 <li>
-                    {{ $order->id }} | {{ $order->status }} | {{ $order->payment_provider }} || {{ $order->price }}
+                    {{ $order->id }} | {{ $order->status }} | {{ $order->payment_provider }} | {{ $order->price }}
                 </li>
             @empty
                 <p>Brak zamówień</p>
