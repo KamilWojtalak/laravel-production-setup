@@ -122,7 +122,7 @@ class StripeService
 
     private function getBody(): array
     {
-        $domain = 'http://localhost';
+        $domain = config('app.url');
 
         return [
             'line_items' => [[
