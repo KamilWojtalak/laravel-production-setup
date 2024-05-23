@@ -11,7 +11,7 @@ class StripeController extends Controller
      */
     public function index()
     {
-        //
+        return view('stripe.index');
     }
 
     /**
