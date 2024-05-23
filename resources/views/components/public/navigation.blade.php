@@ -10,6 +10,9 @@
                         <li class="px-5">
                             <a href="{{ route('stripe.index') }}">Stripe test</a>
                         </li>
+                        <li class="px-5">
+                            <a href="{{ route('orders.index') }}">Orders</a>
+                        </li>
                     </ul>
                 </nav>
             </menu>
