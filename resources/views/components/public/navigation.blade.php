@@ -8,7 +8,7 @@
                             <a href="/">Home Page</a>
                         </li>
                         <li class="px-5">
-                            <a href="#">Navigation</a>
+                            <a href="{{ route('stripe.index') }}">Stripe test</a>
                         </li>
                     </ul>
                 </nav>
