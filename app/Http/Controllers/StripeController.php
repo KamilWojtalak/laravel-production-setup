@@ -46,24 +46,4 @@ class StripeController extends Controller
     {
         return view('stripe.cancel');
     }
-
-    public function show(string $id)
-    {
-        //
-    }
-
-    public function edit(string $id)
-    {
-        //
-    }
-
-    public function update(Request $request, string $id)
-    {
-        //
-    }
-
-    public function destroy(string $id)
-    {
-        //
-    }
 }
