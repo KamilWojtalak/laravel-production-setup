@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->unsignedBigInteger('user_id')->constrained();
+            $table->unsignedBigInteger('user_id')->nullable()->constrained();
             $table->string('status', 50)->default('cart');
             $table->decimal('price');
             $table->string('payment_session_id');
