@@ -3,6 +3,7 @@
 namespace App\Services\Payments;
 
 use App\Models\Order;
+use App\Services\Models\OrderService;
 use Illuminate\Contracts\Routing\ResponseFactory;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -61,15 +62,22 @@ class StripeService
 
     private function handleCompletedEvent(\Stripe\Event $event): void
     {
-        if ($event->type == 'checkout.session.completed') {
+        if ($this->isCheckoutSessionCompleted($event)) {
 
-            // TODO potrzebuje jakiegoś indefyikatora tego zamówienia
-            // $order->payment_session_id = $event->data->object->id;
-            // $order->save()
-            // \Log::info($event->data->object->id);
+            $order = Order::getByPaymentSessionId($event->data->object->id);
+
+            $orderService = new OrderService($order);
+
+            $orderService
+                ->verify()
+                ->save();
         }
     }
 
+    private function isCheckoutSessionCompleted(\Stripe\Event  $event): bool
+    {
+        return $event->type == 'checkout.session.completed';
+    }
 
     private function constructEvent(Request $request): \Stripe\Event
     {

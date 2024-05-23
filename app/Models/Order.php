@@ -12,6 +12,8 @@ class Order extends Model
 
     const PAYMENT_PROVIDER_STRIPE = 'stripe';
 
+    const PAYMENT_STATUS_VERIFIED = 'payment_verified';
+
     protected $guarded = [];
 
     public function user(): HasOne
