@@ -2,6 +2,7 @@
 
 namespace App\Services\Payments;
 
+use App\Models\Order;
 use Illuminate\Contracts\Routing\ResponseFactory;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -24,11 +25,7 @@ class StripeService
 
         $this->checkoutSession = \Stripe\Checkout\Session::create($body);
 
-        // TODO
-        // dd($this->checkoutSession->id, 'dfsasfda'); // cs_test_a1y6kN3VlsbkFCEip345EeBVEnqthwjTsu8P6ghh4WZMOcIaTzQgP3IC04
-        // $order->payment_session_id = $this->checkoutSession->id;
-        // $order->payment_method = 'stripe'; // do consta to daj
-        // $order->save();
+        $this->createOrder();
     }
 
     public function getRedirectUrl(): string
@@ -51,6 +48,15 @@ class StripeService
         $this->handleCompletedEvent($event);
 
         return response('', 200);
+    }
+
+    private function createOrder(): void
+    {
+        Order::create([
+            'payment_session_id' => $this->checkoutSession->id,
+            'price' => 2.00,
+            'payment_provider' => Order::PAYMENT_PROVIDER_STRIPE
+        ]);
     }
 
     private function handleCompletedEvent(\Stripe\Event $event): void
