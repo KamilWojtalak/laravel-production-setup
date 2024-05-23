@@ -4,19 +4,22 @@ namespace App\Http\Controllers;
 
 use App\Services\Payments\StripeService;
 use Illuminate\Http\Request;
+use Illuminate\Contracts\Routing\ResponseFactory;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Response;
+use \Illuminate\Contracts\View\Factory as ViewFactory;
+use \Illuminate\Contracts\View\View;
 
 class StripeController extends Controller
 {
-    public function index()
+    public function index(): View|ViewFactory
     {
         return view('stripe.index');
     }
 
-    public function store(Request $request)
+    public function store(): RedirectResponse
     {
         $stripe = new StripeService();
-
-        $stripe->setApiKey();
 
         $stripe->createCheckoutSession();
 
@@ -25,49 +28,13 @@ class StripeController extends Controller
         return redirect()->away($redirectUrl);
     }
 
-    public function fallback(Request $request)
+    public function fallback(Request $request): Response|ResponseFactory
     {
-        // TODO refactor
-        \Stripe\Stripe::setApiKey(
-            'sk_test_51JuHUlBkAPUOBJWwMS2d70lMN78eU0SpfcMyAU77wpdyxxs9CorYxWzXtRFM6hkj68Glni3fJe91rqtWCg0Mw9uE00wjLWxeIC'
-        );
+        $stripe = new StripeService();
 
-        // You can find your endpoint's secret in your webhook settings
-        $endpoint_secret = 'whsec_e378967533ccbe5d370e24c958fc888922ef865af176154b2753e24f006c792c';
+        $response = $stripe->handleFallbackLogic($request);
 
-        $payload = $request->all();
-        $sig_header = $request->header('HTTP_STRIPE_SIGNATURE');
-        $event = null;
-
-        try {
-            $event = \Stripe\Webhook::constructEvent(
-                $payload,
-                $sig_header,
-                $endpoint_secret
-            );
-        } catch (\UnexpectedValueException $e) {
-            \Log::info('UnexpectedValueException');
-            \Log::info(json_encode($e->getMessage()));
-
-            return response('Invalid payload', 400);
-        } catch (\Stripe\Exception\SignatureVerificationException $e) {
-
-            \Log::info('SignatureVerificationException');
-            \Log::info(json_encode($e->getMessage()));
-
-            return response('Invalid signature', 400);
-        }
-
-        // Handle the checkout.session.completed event
-        if ($event->type == 'checkout.session.completed') {
-
-            // TODO potrzebuje jakiegoś indefyikatora tego zamówienia
-            // $order->payment_session_id = $event->data->object->id;
-            // $order->save()
-            \Log::info($event->data->object->id);
-        }
-
-        return response('', 200);
+        return $response;
     }
 
     public function success()
