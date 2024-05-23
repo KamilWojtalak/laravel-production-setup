@@ -18,6 +18,12 @@ class StripeService
         $body = $this->getBody();
 
         $this->checkoutSession = \Stripe\Checkout\Session::create($body);
+
+        // TODO
+        // dd($this->checkoutSession->id, 'dfsasfda'); // cs_test_a1y6kN3VlsbkFCEip345EeBVEnqthwjTsu8P6ghh4WZMOcIaTzQgP3IC04
+        // $order->payment_session_id = $this->checkoutSession->id;
+        // $order->payment_method = 'stripe'; // do consta to daj
+        // $order->save();
     }
 
     public function getRedirectUrl(): string
