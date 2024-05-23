@@ -32,8 +32,10 @@ class StripeService
         return [
             'line_items' => [[
                 'price_data' => [
-                    // 'currency' => 'PLN',
-                    'currency' => 'USD',
+                    'currency' => 'PLN',
+                    // 'currency' => 'USD',
+                    // Kasa
+                    'unit_amount_decimal' => 1000.00,
                     'product_data' => [
                         'name' => 'Nazwa wyświetlana produktu dla użytkownika',
                         'description' => 'Opis wyświetlany dla użytkownika',
