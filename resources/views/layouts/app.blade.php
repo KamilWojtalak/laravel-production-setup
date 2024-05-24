@@ -18,6 +18,15 @@
         <div class="min-h-screen bg-gray-100">
             @include('layouts.navigation')
 
+
+            @if (Auth::user()->doShowPlanPaymentRemainder())
+                <div class="">payment remainder <a href="{{ route('stripe.index') }}">Link do płatności</a></div>
+            @endif
+
+            @if (Auth::user()->hasNotPayedForPlanSinceMonth())
+                <div class="">oplac usługi bo wygasł ci pakiet <a href="{{ route('stripe.index') }}">Link do płatności</a></div>
+            @endif
+
             <!-- Page Heading -->
             @if (isset($header))
                 <header class="bg-white shadow">

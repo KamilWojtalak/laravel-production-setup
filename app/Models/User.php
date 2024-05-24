@@ -93,10 +93,44 @@ class User extends Authenticatable
         }
     }
 
+    public function hasPayedForPlanBetween(Carbon $startDate, Carbon $endDate): bool
+    {
+        try {
+            return $this->plans()
+                ->withPivot('plan_payed_at')
+                ->whereBetween('plan_payed_at', [$startDate, $endDate])
+                ->exists();
+        } catch (\Throwable $th) {
+            return false;
+        }
+    }
+
+    public function hasNotPayedForPlanSince(Carbon $date): bool
+    {
+        return !$this->hasPayedForPlanSince($date);
+    }
+
     public function hasPayedForPlanSinceMonth(): bool
     {
         $month = now()->subMonth();
 
         return $this->hasPayedForPlanSince($month);
+    }
+
+    public function hasNotPayedForPlanSinceMonth(): bool
+    {
+        return !$this->hasPayedForPlanSinceMonth();
+    }
+
+    public function doShowPlanPaymentRemainder(): bool
+    {
+        $start = now()
+            ->subMonth();
+
+        $end = now()
+            ->subMonth()
+            ->addDays(7);
+
+        return $this->hasPayedForPlanBetween($start, $end);
     }
 }
