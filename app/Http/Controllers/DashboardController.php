@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Foundation\Auth\Access\Authorizable;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
 {
+    use Authorizable;
+
     public function index()
     {
         return view('dashboard.index');
