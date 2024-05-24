@@ -55,7 +55,7 @@ class User extends Authenticatable
     public function plans(): BelongsToMany
     {
         return $this->belongsToMany(Plan::class, 'orders', 'user_id', 'plan_id', 'id', 'id')
-            ->withPivot('payed_at');;
+            ->withPivot('plan_payed_at');;
     }
 
     public function getPlan()
@@ -90,8 +90,8 @@ class User extends Authenticatable
     {
         try {
             return $this->plans()
-                ->withPivot('payed_at')
-                ->where('payed_at', '>=', $date)
+                ->withPivot('plan_payed_at')
+                ->where('plan_payed_at', '>=', $date)
                 ->exists();
         } catch (\Throwable $th) {
             return false;
@@ -102,8 +102,8 @@ class User extends Authenticatable
     {
         try {
             return $this->plans()
-                ->withPivot('payed_at')
-                ->whereBetween('payed_at', [$startDate, $endDate])
+                ->withPivot('plan_payed_at')
+                ->whereBetween('plan_payed_at', [$startDate, $endDate])
                 ->exists();
         } catch (\Throwable $th) {
             return false;
