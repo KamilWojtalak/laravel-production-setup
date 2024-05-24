@@ -13,11 +13,11 @@ class DashboardPolicy
 
     public function firstPlan(User $user): bool
     {
-        return $user->hasPlan('first');
+        return $user->hasPlanByName('first-test-plan');
     }
 
     public function secondPlan(User $user): bool
     {
-        return $user->hasPlan('second');
+        return $user->hasPlanByName('second-test-plan');
     }
 }
