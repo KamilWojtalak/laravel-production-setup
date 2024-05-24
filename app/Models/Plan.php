@@ -21,4 +21,9 @@ class Plan extends Model
     {
         return $q->where('name', $name);
     }
+
+    public function scopeMinStength(QueryBuilder $q, int $minStength): QueryBuilder
+    {
+        return $q->where('strength', '>=', $minStength);
+    }
 }

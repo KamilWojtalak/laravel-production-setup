@@ -60,4 +60,17 @@ class User extends Authenticatable
     {
         return $this->plans()->name($planName)->exists();
     }
+
+    public function hasThisPlanMinimum(string $planName): bool
+    {
+        try {
+            $minPlan = Plan::getByName($planName);
+
+            $minStrength = $minPlan->strength;
+
+            return $this->plans()->minStength($minStrength)->exists();
+        } catch (\Throwable $th) {
+            return false;
+        }
+    }
 }
