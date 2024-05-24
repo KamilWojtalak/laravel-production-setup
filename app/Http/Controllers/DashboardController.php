@@ -10,4 +10,14 @@ class DashboardController extends Controller
     {
         return view('dashboard.index');
     }
+
+    public function testAccessFirstPlan()
+    {
+        return view('dashboard.test-access-first-plan');
+    }
+
+    public function testAccessSecondPlan()
+    {
+        return view('dashboard.test-access-second-plan');
+    }
 }
