@@ -12,12 +12,12 @@ class PlanSeeder extends Seeder
     public function run(): void
     {
         Plan::factory()->create([
-            'name' => 'first-test-plan',
+            'name' => Plan::TYPE_FIRST,
             'strength' => 5,
         ]);
 
         Plan::factory()->create([
-            'name' => 'second-test-plan',
+            'name' => Plan::TYPE_SECOND,
             'strength' => 10,
         ]);
     }
