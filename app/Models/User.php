@@ -93,4 +93,10 @@ class User extends Authenticatable
         }
     }
 
+    public function hasPayedForPlanSinceMonth(): bool
+    {
+        $month = now()->subMonth();
+
+        return $this->hasPayedForPlanSince($month);
+    }
 }

@@ -18,9 +18,7 @@ class DashboardPolicy
             return false;
         }
 
-        $month = now()->subMonth();
-
-        if ($user->hasPayedForPlanSince($month))
+        if ($user->hasPayedForPlanSinceMonth())
         {
             return true;
         }
@@ -35,9 +33,7 @@ class DashboardPolicy
             return false;
         }
 
-        $month = now()->subMonth();
-
-        if ($user->hasPayedForPlanSince($month))
+        if ($user->hasPayedForPlanSinceMonth())
         {
             return true;
         }
