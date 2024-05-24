@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Foundation\Auth\Access\Authorizable;
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
 {
-    use Authorizable;
+    use AuthorizesRequests;
 
     public function index()
     {
