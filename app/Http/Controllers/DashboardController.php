@@ -13,11 +13,15 @@ class DashboardController extends Controller
 
     public function testAccessFirstPlan()
     {
+        $this->authorize('first-plan');
+
         return view('dashboard.test-access-first-plan');
     }
 
     public function testAccessSecondPlan()
     {
+        $this->authorize('first-plan');
+
         return view('dashboard.test-access-second-plan');
     }
 }
