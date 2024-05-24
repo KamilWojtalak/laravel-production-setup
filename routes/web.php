@@ -12,8 +12,8 @@ Route::get('/', function () {
 Route::get('/feedback', [FeedbackController::class, 'index'])->name('feedback.index');
 Route::post('/feedback', [FeedbackController::class, 'store'])->name('feedback.store');
 
-Route::name('stripe.')
-    ->prefix('/stripe')
+Route::prefix('/stripe')
+    ->name('stripe.')
     ->group(function () {
         Route::get('', [StripeController::class, 'index'])->name('index');
         Route::post('', [StripeController::class, 'store'])->name('store');
