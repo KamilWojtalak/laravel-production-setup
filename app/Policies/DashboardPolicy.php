@@ -6,11 +6,18 @@ use App\Models\User;
 
 class DashboardPolicy
 {
-    /**
-     * Create a new policy instance.
-     */
     public function __construct()
     {
         //
+    }
+
+    public function firstPlan(User $user): bool
+    {
+        return $user->hasPlan('first');
+    }
+
+    public function secondPlan(User $user): bool
+    {
+        return $user->hasPlan('second');
     }
 }
