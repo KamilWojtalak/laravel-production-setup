@@ -35,6 +35,10 @@ class User extends Authenticatable
         'remember_token',
     ];
 
+    protected $with = [
+        'plans',
+    ];
+
     /**
      * Get the attributes that should be cast.
      *
@@ -50,7 +54,8 @@ class User extends Authenticatable
 
     public function plans(): BelongsToMany
     {
-        return $this->belongsToMany(Plan::class, 'plan_users', 'user_id', 'plan_id', 'id', 'id');
+        return $this->belongsToMany(Plan::class, 'plan_users', 'user_id', 'plan_id', 'id', 'id')
+            ->withPivot('plan_payed_at');;
     }
 
     public function getPlan()
