@@ -13,7 +13,20 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/dashboard', [DashboardController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard.index');
+Route::middleware(['auth', 'verified'])
+    ->prefix('/dashboard')
+    ->name('dashboard.')
+    ->group(function () {
+        Route::get('', [DashboardController::class, 'index'])
+            ->name('index');
+
+        Route::get('/test-access-first-plan', [DashboardController::class, 'testAccessFirstPlan'])
+            ->name('test-access-first-plan');
+
+        Route::get('/test-access-second-plan', [DashboardController::class, 'testAccessSecondPlan'])
+            ->name('test-access-second-plan');
+    });
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
