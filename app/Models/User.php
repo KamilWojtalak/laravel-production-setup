@@ -54,7 +54,7 @@ class User extends Authenticatable
 
     public function plans(): BelongsToMany
     {
-        return $this->belongsToMany(Plan::class, 'plan_users', 'user_id', 'plan_id', 'id', 'id')
+        return $this->belongsToMany(Plan::class, 'orders', 'user_id', 'plan_id', 'id', 'id')
             ->withPivot('plan_payed_at');;
     }
 
