@@ -2,6 +2,7 @@
 
 namespace App\Policies;
 
+use App\Models\Plan;
 use App\Models\User;
 
 class DashboardPolicy
@@ -13,7 +14,7 @@ class DashboardPolicy
 
     public function firstPlan(User $user): bool
     {
-        if ($user->hasNotThisPlanMinimum('first-test-plan'))
+        if ($user->hasNotThisPlanMinimum(Plan::TYPE_FIRST))
         {
             return false;
         }
@@ -28,7 +29,7 @@ class DashboardPolicy
 
     public function secondPlan(User $user): bool
     {
-        if ($user->hasNotThisPlanMinimum('second-test-plan'))
+        if ($user->hasNotThisPlanMinimum(PLAN::TYPE_SECOND))
         {
             return false;
         }

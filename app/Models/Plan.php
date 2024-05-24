@@ -10,6 +10,9 @@ class Plan extends Model
 {
     use HasFactory;
 
+    const TYPE_FIRST = 'first-test-plan';
+    const TYPE_SECOND = 'second-test-plan';
+
     public static function getByName(string $name): self
     {
         return static::query()
