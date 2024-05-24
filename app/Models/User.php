@@ -4,6 +4,7 @@ namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
@@ -45,8 +46,18 @@ class User extends Authenticatable
         ];
     }
 
-    public function hasPlan(string $roleName): bool
+    public function plans(): BelongsToMany
     {
-        return true;
+        return $this->belongsToMany(Plan::class, 'plan_users', 'user_id', 'plan_id', 'id', 'id');
+    }
+
+    public function getPlan()
+    {
+        return $this->plans()->first();
+    }
+
+    public function hasPlanByName(string $planName): bool
+    {
+        return $this->plans()->name($planName)->exists();
     }
 }
