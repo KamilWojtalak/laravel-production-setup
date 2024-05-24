@@ -12,9 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('orders', function (Blueprint $table) {
-            $table->unsignedBigInteger('user_id')->constrained()->nullable();
             $table->unsignedBigInteger('plan_id')->constrained();
-            $table->timestamp('plan_payed_at');
+            $table->timestamp('payed_at')->nullable();
         });
     }
 
@@ -24,9 +23,8 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('orders', function (Blueprint $table) {
-            $table->dropColumn('user_id');
             $table->dropColumn('plan_id');
-            $table->dropColumn('plan_payed_at');
+            $table->dropColumn('payed_at');
         });
     }
 };
