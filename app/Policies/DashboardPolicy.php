@@ -13,11 +13,35 @@ class DashboardPolicy
 
     public function firstPlan(User $user): bool
     {
-        return $user->hasThisPlanMinimum('first-test-plan');
+        if ($user->hasNotThisPlanMinimum('first-test-plan'))
+        {
+            return false;
+        }
+
+        $month = now()->subMonth();
+
+        if ($user->hasPayedForPlanSince($month))
+        {
+            return true;
+        }
+
+        return false;
     }
 
     public function secondPlan(User $user): bool
     {
-        return $user->hasThisPlanMinimum('second-test-plan');
+        if ($user->hasNotThisPlanMinimum('second-test-plan'))
+        {
+            return false;
+        }
+
+        $month = now()->subMonth();
+
+        if ($user->hasPayedForPlanSince($month))
+        {
+            return true;
+        }
+
+        return false;
     }
 }

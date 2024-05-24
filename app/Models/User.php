@@ -3,6 +3,8 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -73,4 +75,22 @@ class User extends Authenticatable
             return false;
         }
     }
+
+    public function hasNotThisPlanMinimum(string $planName): bool
+    {
+        return !$this->hasThisPlanMinimum($planName);
+    }
+
+    public function hasPayedForPlanSince(Carbon $date): bool
+    {
+        try {
+            return $this->plans()
+                ->withPivot('plan_payed_at')
+                ->where('plan_payed_at', '>=', $date)
+                ->exists();
+        } catch (\Throwable $th) {
+            return false;
+        }
+    }
+
 }
