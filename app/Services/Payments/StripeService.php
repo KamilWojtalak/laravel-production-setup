@@ -74,7 +74,7 @@ class StripeService
         }
     }
 
-    private function isCheckoutSessionCompleted(\Stripe\Event  $event): bool
+    private function isCheckoutSessionCompleted(\Stripe\Event $event): bool
     {
         return $event->type == 'checkout.session.completed';
     }
