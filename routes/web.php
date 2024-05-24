@@ -12,13 +12,16 @@ Route::get('/', function () {
 Route::get('/feedback', [FeedbackController::class, 'index'])->name('feedback.index');
 Route::post('/feedback', [FeedbackController::class, 'store'])->name('feedback.store');
 
-Route::get('/stripe', [StripeController::class, 'index'])->name('stripe.index');
-Route::post('/stripe', [StripeController::class, 'store'])->name('stripe.store');
-Route::post('/stripe/fallback', [StripeController::class, 'fallback'])->name('stripe.fallback');
-Route::get('/stripe/success', [StripeController::class, 'success'])->name('stripe.success');
-Route::get('/stripe/cancel', [StripeController::class, 'cancel'])->name('stripe.cancel');
+Route::name('stripe.')
+    ->prefix('/stripe')
+    ->group(function () {
+        Route::get('', [StripeController::class, 'index'])->name('index');
+        Route::post('', [StripeController::class, 'store'])->name('store');
+        Route::post('/fallback', [StripeController::class, 'fallback'])->name('fallback');
+        Route::get('/success', [StripeController::class, 'success'])->name('success');
+        Route::get('/cancel', [StripeController::class, 'cancel'])->name('cancel');
+    });
 
 Route::get('/orders', [OrdersController::class, 'index'])->name('orders.index');
 
-
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
