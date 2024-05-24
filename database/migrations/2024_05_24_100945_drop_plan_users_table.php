@@ -26,5 +26,6 @@ return new class extends Migration
             $table->unsignedBigInteger('user_id')->constrained();
             $table->unsignedBigInteger('plan_id')->constrained();
             $table->timestamp('plan_payed_at');
-        });    }
+        });
+    }
 };
