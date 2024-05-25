@@ -4,11 +4,14 @@ namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
 use App\Models\Task;
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Http\Request;
 
 // NOTE no validation, and no authorization, only test purposes
 class TasksController extends Controller
 {
+    use AuthorizesRequests;
+
     public function index()
     {
         $tasks = Task::query()
@@ -26,6 +29,15 @@ class TasksController extends Controller
     // NOTE Without clean code
     public function store(Request $request)
     {
+        if (auth()->user()->can('tasks.store'))
+        {
+            dd('może');
+        }
+        else
+        {
+            dd('nie może');
+        }
+
         Task::create([
             'name' => $request->get('name'),
             'user_id' => auth()->id()
