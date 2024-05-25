@@ -56,7 +56,13 @@ class StripeService
         Order::create([
             'payment_session_id' => $this->checkoutSession->id,
             'price' => 2.00,
-            'payment_provider' => Order::PAYMENT_PROVIDER_STRIPE
+            'payment_provider' => Order::PAYMENT_PROVIDER_STRIPE,
+            // TODO to trzeba zrobić dynamicznie
+            'plan_id' => 1,
+            // TODO to trzeba opłącić na verify
+            'payed_at' => null,
+            // TODO do observera
+            'user_id' => auth()->id()
         ]);
     }
 
