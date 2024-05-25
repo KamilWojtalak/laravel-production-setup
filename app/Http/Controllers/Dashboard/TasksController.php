@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Task;
 use Illuminate\Http\Request;
 
+// NOTE no validation, and no authorization, only test purposes
 class TasksController extends Controller
 {
     public function index()
@@ -25,10 +26,6 @@ class TasksController extends Controller
     // NOTE Without clean code
     public function store(Request $request)
     {
-        $request->validate([
-            'name' => 'required'
-        ]);
-
         Task::create([
             'name' => $request->get('name'),
             'user_id' => auth()->id()
@@ -37,6 +34,7 @@ class TasksController extends Controller
         return redirect()->route('dashboard.tasks.index')->with('success', 'utworzono task');
     }
 
+    // NOTE no validation - only test purposes
     public function destroy(string $id)
     {
         //
