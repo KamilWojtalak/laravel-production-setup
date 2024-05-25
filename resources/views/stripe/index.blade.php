@@ -13,7 +13,7 @@
                         <img src="https://place-hold.it/450" alt="The cover of Stubborn Attachments" />
                         <div class="description">
                             <h3>{{ $plan->name }}</h3>
-                            <h5>cena: $3.00</h5>
+                            <h5>cena: ${{ $plan->price }}</h5>
                         </div>
                         <form action="{{ route('stripe.store') }}" method="POST">
                             @csrf
