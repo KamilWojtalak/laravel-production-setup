@@ -13,6 +13,9 @@ class Plan extends Model
     const TYPE_FIRST = 'first-test-plan';
     const TYPE_SECOND = 'second-test-plan';
 
+    const MAX_TASKS_PER_PLAN_FREE = 1;
+    const MAX_TASKS_PER_PLAN_FIRST = 2;
+
     public static function getByName(string $name): self
     {
         return static::query()
