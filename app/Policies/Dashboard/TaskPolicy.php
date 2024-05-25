@@ -14,17 +14,11 @@ class TaskPolicy
 
     public function store(User $user): bool
     {
-        return true;
-        // if ($user->hasNotThisPlanMinimum(Plan::TYPE_FIRST))
-        // {
-        //     return false;
-        // }
+        if ($user->canCreateTask())
+        {
+            return true;
+        }
 
-        // if ($user->hasPayedForPlanSinceMonth())
-        // {
-        //     return true;
-        // }
-
-        // return false;
+        return false;
     }
 }
