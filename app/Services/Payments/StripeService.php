@@ -76,6 +76,7 @@ class StripeService
 
             $orderService
                 ->verify()
+                ->markPaid()
                 ->save();
         }
     }

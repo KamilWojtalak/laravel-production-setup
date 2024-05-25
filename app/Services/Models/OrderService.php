@@ -25,6 +25,13 @@ class OrderService
         return $this;
     }
 
+    public function markPaid(): self
+    {
+        $this->order->payed_at = now();
+
+        return $this;
+    }
+
     public function save(): self
     {
         $this->order->save();
