@@ -3,6 +3,7 @@
 namespace App\Services\Payments;
 
 use App\Models\Order;
+use App\Models\Plan;
 use App\Services\Models\OrderService;
 use Illuminate\Contracts\Routing\ResponseFactory;
 use Illuminate\Http\Request;
@@ -18,7 +19,7 @@ class StripeService
         Stripe::setApiKey(config('payments.stripe.secret'));
     }
 
-    public function createCheckoutSession(): void
+    public function createCheckoutSession(Plan $plan): void
     {
         $this->setApiKey();
 
@@ -26,7 +27,7 @@ class StripeService
 
         $this->checkoutSession = \Stripe\Checkout\Session::create($body);
 
-        $this->createOrder();
+        $this->createOrder($plan);
     }
 
     public function getRedirectUrl(): string
@@ -51,15 +52,13 @@ class StripeService
         return response('', 200);
     }
 
-    private function createOrder(): void
+    private function createOrder(Plan $plan): void
     {
         Order::create([
             'payment_session_id' => $this->checkoutSession->id,
             'price' => 2.00,
             'payment_provider' => Order::PAYMENT_PROVIDER_STRIPE,
-            // TODO to trzeba zrobić dynamicznie
-            'plan_id' => 1,
-            // TODO to trzeba opłącić na verify
+            'plan_id' => $plan->id,
             'payed_at' => null,
             // TODO do observera
             'user_id' => auth()->id()

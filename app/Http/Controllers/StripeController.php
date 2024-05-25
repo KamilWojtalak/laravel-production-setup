@@ -22,11 +22,15 @@ class StripeController extends Controller
         ]);
     }
 
-    public function store(): RedirectResponse
+    public function store(Request $request): RedirectResponse
     {
+        $planId = $request->get('plan_id');
+
+        $plan = Plan::findOrFail($planId);
+
         $stripe = new StripeService();
 
-        $stripe->createCheckoutSession();
+        $stripe->createCheckoutSession($plan);
 
         $redirectUrl = $stripe->getRedirectUrl();
 
