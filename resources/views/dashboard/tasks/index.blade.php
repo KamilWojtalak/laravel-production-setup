@@ -11,6 +11,9 @@
                 <div class="p-6 text-gray-900">
                     Tsks index
                 </div>
+                <div class="">
+                    <a href="{{ route('dashboard.tasks.create') }}">Create</a>
+                </div>
             </div>
         </div>
     </div>
