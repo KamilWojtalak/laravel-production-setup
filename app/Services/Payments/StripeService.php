@@ -27,7 +27,7 @@ class StripeService
 
         $this->checkoutSession = \Stripe\Checkout\Session::create($body);
 
-        $this->createOrder($plan);
+        $order = $this->createOrder($plan);
     }
 
     public function getRedirectUrl(): string
@@ -52,9 +52,9 @@ class StripeService
         return response('', 200);
     }
 
-    private function createOrder(Plan $plan): void
+    private function createOrder(Plan $plan): Order
     {
-        Order::create([
+        return Order::create([
             'payment_session_id' => $this->checkoutSession->id,
             'price' => $plan->price,
             'payment_provider' => Order::PAYMENT_PROVIDER_STRIPE,
