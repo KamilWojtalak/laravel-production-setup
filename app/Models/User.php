@@ -53,9 +53,11 @@ class User extends Authenticatable
         ];
     }
 
-    public static function boot(): void
+    public static function booted(): void
     {
-        User::observe(UserObserver::class);
+        parent::booted();
+
+        static::observe(UserObserver::class);
     }
 
     public function plans(): BelongsToMany
