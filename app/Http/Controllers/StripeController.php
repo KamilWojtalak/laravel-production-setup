@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Plan;
 use App\Services\Payments\StripeService;
 use Illuminate\Http\Request;
 use Illuminate\Contracts\Routing\ResponseFactory;
@@ -14,7 +15,11 @@ class StripeController extends Controller
 {
     public function index(): View|ViewFactory
     {
-        return view('stripe.index');
+        $plans = Plan::get();
+
+        return view('stripe.index', [
+            'plans' => $plans
+        ]);
     }
 
     public function store(): RedirectResponse
