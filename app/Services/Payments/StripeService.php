@@ -23,11 +23,11 @@ class StripeService
     {
         $this->setApiKey();
 
-        $body = $this->getBody();
+        $order = $this->createOrder($plan);
+
+        $body = $this->getBody($order);
 
         $this->checkoutSession = \Stripe\Checkout\Session::create($body);
-
-        $order = $this->createOrder($plan);
     }
 
     public function getRedirectUrl(): string
@@ -126,7 +126,7 @@ class StripeService
         return response('Invalid signature', 400);
     }
 
-    private function getBody(): array
+    private function getBody(Order $order): array
     {
         $domain = config('app.url');
 
@@ -135,15 +135,12 @@ class StripeService
                 'price_data' => [
                     'currency' => 'PLN',
                     // 'currency' => 'USD',
-                    // Kasa, minimum 2zł
-                    'unit_amount_decimal' => 200.00,
+                    'unit_amount_decimal' => $order->getPriceForPaymentProvider(),
                     'product_data' => [
-                        'name' => 'Nazwa wyświetlana produktu dla użytkownika',
-                        'description' => 'Opis wyświetlany dla użytkownika',
+                        'name' => $order->plan->name,
+                        'description' => 'Opis wyświetlany dla użytkownika: '. $order->plan->name,
                         'images' => [
                             'https://place-hold.it/100',
-                            'https://place-hold.it/50',
-                            'https://place-hold.it/100/50',
                         ],
                         'metadata' => [
                             'metadatakey1' => 'value1',
