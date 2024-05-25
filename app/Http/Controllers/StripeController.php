@@ -24,15 +24,7 @@ class StripeController extends Controller
 
     public function store(Request $request): RedirectResponse
     {
-        $planId = $request->get('plan_id');
-
-        $plan = Plan::findOrFail($planId);
-
-        $stripe = new StripeService();
-
-        $stripe->createCheckoutSession($plan);
-
-        $redirectUrl = $stripe->getRedirectUrl();
+        $redirectUrl = $this->getStripePaymentUrl($request);
 
         return redirect()->away($redirectUrl);
     }
@@ -55,4 +47,20 @@ class StripeController extends Controller
     {
         return view('stripe.cancel');
     }
+
+    private function getStripePaymentUrl(Request $request): string
+    {
+        $planId = $request->get('plan_id');
+
+        $plan = Plan::findOrFail($planId);
+
+        $stripe = new StripeService();
+
+        $stripe->createCheckoutSession($plan);
+
+        $redirectUrl = $stripe->getRedirectUrl();
+
+        return $redirectUrl;
+    }
+
 }
