@@ -56,7 +56,7 @@ class StripeService
     {
         Order::create([
             'payment_session_id' => $this->checkoutSession->id,
-            'price' => 2.00,
+            'price' => $plan->price,
             'payment_provider' => Order::PAYMENT_PROVIDER_STRIPE,
             'plan_id' => $plan->id,
             'payed_at' => null,
