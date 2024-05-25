@@ -22,9 +22,9 @@ class StripeController extends Controller
         ]);
     }
 
-    public function store(Request $request): RedirectResponse
+    public function store(Request $request, StripeService $stripe): RedirectResponse
     {
-        $redirectUrl = $this->getStripePaymentUrl($request);
+        $redirectUrl = $this->getStripePaymentUrl($request, $stripe);
 
         return redirect()->away($redirectUrl);
     }
