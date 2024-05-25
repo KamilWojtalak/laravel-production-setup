@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Policies\Dashboard\TaskPolicy;
 use App\Policies\DashboardPolicy;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Facades\Gate;
@@ -31,6 +32,7 @@ class AppServiceProvider extends ServiceProvider
     {
         Gate::define('first-plan', [DashboardPolicy::class, 'firstPlan']);
         Gate::define('second-plan', [DashboardPolicy::class, 'secondPlan']);
+        Gate::define('tasks.store', [TaskPolicy::class, 'store']);
     }
 
     private function registerBladeDirectives(): void
