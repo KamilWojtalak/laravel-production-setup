@@ -65,8 +65,6 @@ class StripeService
             'payment_provider' => Order::PAYMENT_PROVIDER_STRIPE,
             'plan_id' => $plan->id,
             'payed_at' => null,
-            // TODO do observera
-            'user_id' => auth()->id()
         ]);
     }
 
