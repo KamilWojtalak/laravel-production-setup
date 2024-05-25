@@ -11,7 +11,14 @@
                 <div class="p-6 text-gray-900">
                     <ul>
                         @forelse ($tasks as $task)
-                            <li>{{ $task->name }}</li>
+                            <li>
+                                {{ $task->name }}
+                                <form action="{{ route('dashboard.tasks.destroy', $task) }}" method="post">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button>Delete</button>
+                                </form>
+                            </li>
                         @empty
                             <li>Brak tasków</li>
                         @endforelse

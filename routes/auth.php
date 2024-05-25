@@ -28,7 +28,7 @@ Route::middleware(['auth', 'verified'])
             ->name('test-access-second-plan');
 
         Route::resource('tasks', TasksController::class)
-            ->only('index', 'create', 'store');
+            ->only('index', 'create', 'store', 'destroy');
     });
 
 
