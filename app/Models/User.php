@@ -60,7 +60,9 @@ class User extends Authenticatable
 
     public function getPlan()
     {
-        return $this->plans()->latest()->first();
+        return $this->plans()
+            ->latest()
+            ->first();
     }
 
     public function hasPlanByName(string $planName): bool
