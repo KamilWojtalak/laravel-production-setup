@@ -18,6 +18,13 @@ class OrderService
         return $this;
     }
 
+    public function setPaymentSessionId(string $paymentSessionId): self
+    {
+        $this->order->payment_session_id = $paymentSessionId;
+
+        return $this;
+    }
+
     public function verify(): self
     {
         $this->setPaymentStatus(Order::PAYMENT_STATUS_VERIFIED);
