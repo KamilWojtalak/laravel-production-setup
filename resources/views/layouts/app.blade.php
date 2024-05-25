@@ -20,6 +20,13 @@
     <div class="min-h-screen bg-gray-100">
         @include('layouts.navigation')
 
+        @if (session('error'))
+            <p style="color: red">{{ session('error') }}</p>
+        @endif
+
+        @if (session('success'))
+            <p style="color: red">{{ session('success') }}</p>
+        @endif
 
         @if (Auth::user()->doShowPlanPaymentRemainder())
             <div class="">
