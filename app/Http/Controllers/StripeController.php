@@ -29,10 +29,8 @@ class StripeController extends Controller
         return redirect()->away($redirectUrl);
     }
 
-    public function fallback(Request $request): Response|ResponseFactory
+    public function fallback(Request $request, StripeService $stripe): Response|ResponseFactory
     {
-        $stripe = new StripeService();
-
         $response = $stripe->handleFallbackLogic($request);
 
         return $response;
@@ -48,13 +46,11 @@ class StripeController extends Controller
         return view('stripe.cancel');
     }
 
-    private function getStripePaymentUrl(Request $request): string
+    private function getStripePaymentUrl(Request $request, StripeService $stripe): string
     {
         $planId = $request->get('plan_id');
 
         $plan = Plan::findOrFail($planId);
-
-        $stripe = new StripeService();
 
         $stripe->createCheckoutSession($plan);
 
