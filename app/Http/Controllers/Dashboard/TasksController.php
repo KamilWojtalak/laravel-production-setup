@@ -20,7 +20,7 @@ class TasksController extends Controller
      */
     public function create()
     {
-        return view('dashboard.tasks.index');
+        return view('dashboard.tasks.create');
     }
 
     /**
