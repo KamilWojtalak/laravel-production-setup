@@ -69,7 +69,7 @@ class User extends Authenticatable
     public function getPlan(): ?Plan
     {
         return $this->plans()
-            ->latest()
+            ->latest('payed_at')
             ->first();
     }
 
