@@ -25,11 +25,9 @@
                             {{ __('second plan') }}
                         </x-nav-link>
                     @endcan
-                    @can('second-plan')
-                        <x-nav-link :href="route('dashboard.tasks.index')" :active="request()->routeIs('dashboard.tasks.index')">
-                            {{ __('tasks') }}
-                        </x-nav-link>
-                    @endcan
+                    <x-nav-link :href="route('dashboard.tasks.index')" :active="request()->routeIs('dashboard.tasks.index')">
+                        {{ __('tasks') }}
+                    </x-nav-link>
 
                 </div>
             </div>
