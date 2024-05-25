@@ -6,6 +6,9 @@ use App\Http\Controllers\Controller;
 use App\Models\Task;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Http\Request;
+use Illuminate\Auth\Access\AuthorizationException;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Routing\Redirector;
 
 // NOTE no validation, and no authorization, only test purposes
 class TasksController extends Controller
@@ -26,24 +29,16 @@ class TasksController extends Controller
         return view('dashboard.tasks.create');
     }
 
-    // NOTE Without clean code
-    public function store(Request $request)
+    // NOTE Without validation on purpose
+    public function store(Request $request): Redirector|RedirectResponse
     {
-        if (auth()->user()->can('tasks.store'))
-        {
-            dd('może');
+        try {
+            return $this->handleStore($request);
+        } catch (AuthorizationException $e) {
+            return redirect()
+                ->route('dashboard.tasks.index')
+                ->with('error', 'Niestety możesz stworzyć tylko jeden task, żeby móc stworzyć więcej tasków musisz kupić lepszy pakiet.');
         }
-        else
-        {
-            dd('nie może');
-        }
-
-        Task::create([
-            'name' => $request->get('name'),
-            'user_id' => auth()->id()
-        ]);
-
-        return redirect()->route('dashboard.tasks.index')->with('success', 'utworzono task');
     }
 
     // NOTE no validation - only test purposes
@@ -52,5 +47,17 @@ class TasksController extends Controller
         $task->delete();
 
         return back();
+    }
+
+    private function handleStore(Request $request): Redirector|RedirectResponse
+    {
+        $this->authorize('tasks.store');
+
+        Task::create([
+            'name' => $request->input('name'),
+            'user_id' => auth()->id()
+        ]);
+
+        return redirect()->route('dashboard.tasks.index')->with('success', 'Utworzono task.');
     }
 }
