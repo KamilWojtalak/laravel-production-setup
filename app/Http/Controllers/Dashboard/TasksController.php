@@ -35,8 +35,10 @@ class TasksController extends Controller
     }
 
     // NOTE no validation - only test purposes
-    public function destroy(string $id)
+    public function destroy(Task $task)
     {
-        //
+        $task->delete();
+
+        return back();
     }
 }
