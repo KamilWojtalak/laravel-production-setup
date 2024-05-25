@@ -10,7 +10,10 @@ class TasksController extends Controller
 {
     public function index()
     {
-        $tasks = Task::get();
+        $tasks = Task::query()
+            ->currentUser()
+            ->get();
+
         return view('dashboard.tasks.index', compact('tasks'));
     }
 

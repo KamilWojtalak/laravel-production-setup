@@ -9,7 +9,13 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900">
-                    Tsks index
+                    <ul>
+                        @forelse ($tasks as $task)
+                            <li>{{ $task->name }}</li>
+                        @empty
+                            <li>Brak tasków</li>
+                        @endforelse
+                    </ul>
                 </div>
                 <div class="">
                     <a href="{{ route('dashboard.tasks.create') }}">Create</a>
