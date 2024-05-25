@@ -25,6 +25,13 @@ class OrderService
         return $this;
     }
 
+    public function setSubscriptionId(string $id): self
+    {
+        $this->order->payment_subscription_id = $id;
+
+        return $this;
+    }
+
     public function verify(): self
     {
         $this->setPaymentStatus(Order::PAYMENT_STATUS_VERIFIED);

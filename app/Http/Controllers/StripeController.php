@@ -58,5 +58,4 @@ class StripeController extends Controller
 
         return $redirectUrl;
     }
-
 }

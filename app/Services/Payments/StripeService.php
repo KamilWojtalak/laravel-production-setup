@@ -134,26 +134,28 @@ class StripeService
         $domain = config('app.url');
 
         return [
-            'line_items' => [[
-                'price_data' => [
-                    'currency' => 'PLN',
-                    // 'currency' => 'USD',
-                    'unit_amount_decimal' => $order->getPriceForPaymentProvider(),
-                    'product_data' => [
-                        'name' => $order->plan->name,
-                        'description' => 'Opis wyświetlany dla użytkownika: '. $order->plan->name,
-                        'images' => [
-                            'https://place-hold.it/100',
+            'line_items' => [
+                [
+                    'price_data' => [
+                        'currency' => 'PLN',
+                        // 'currency' => 'USD',
+                        'unit_amount_decimal' => $order->getPriceForPaymentProvider(),
+                        'product_data' => [
+                            'name' => $order->plan->name,
+                            'description' => 'Opis wyświetlany dla użytkownika: ' . $order->plan->name,
+                            'images' => [
+                                'https://place-hold.it/100',
+                            ],
+                            'metadata' => [
+                                'metadatakey1' => 'value1',
+                                'metadatakey2' => 'value2',
+                                'metadatakey3' => 'value3',
+                            ]
                         ],
-                        'metadata' => [
-                            'metadatakey1' => 'value1',
-                            'metadatakey2' => 'value2',
-                            'metadatakey3' => 'value3',
-                        ]
                     ],
-                ],
-                'quantity' => 1,
-            ]],
+                    'quantity' => 1,
+                ]
+            ],
             // NOTE może też być subscription
             'mode' => 'payment',
             'success_url' => $domain . '/stripe/success',
