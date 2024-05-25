@@ -64,7 +64,7 @@ class User extends Authenticatable
             ->withPivot('payed_at');
     }
 
-    public function getPlan()
+    public function getPlan(): ?Plan
     {
         return $this->plans()
             ->latest()
