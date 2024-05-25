@@ -17,7 +17,7 @@
                         </div>
                         <form action="{{ route('stripe.store') }}" method="POST">
                             @csrf
-                            <input type="hidden" name="plan" value="{{ $plan->name }}">
+                            <input type="hidden" name="plan_id" value="{{ $plan->id }}">
                             <button type="submit" id="checkout-button">Checkout Plan {{ $plan->name }}</button>
                         </form>
                     </div>
