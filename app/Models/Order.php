@@ -21,6 +21,11 @@ class Order extends Model
         return $this->hasOne(User::class);
     }
 
+    public function plan(): HasOne
+    {
+        return $this->hasOne(Plan::class);
+    }
+
     public static function getByPaymentSessionId(string $paymentSessionId): Order
     {
         $order = static::query()
@@ -28,5 +33,10 @@ class Order extends Model
             ->firstOrFail();
 
         return $order;
+    }
+
+    public function getPriceForPaymentProvider(): int
+    {
+        return (int) $this->price * 100;
     }
 }
