@@ -55,12 +55,12 @@ class User extends Authenticatable
     public function plans(): BelongsToMany
     {
         return $this->belongsToMany(Plan::class, 'orders', 'user_id', 'plan_id', 'id', 'id')
-            ->withPivot('payed_at');;
+            ->withPivot('payed_at');
     }
 
     public function getPlan()
     {
-        return $this->plans()->first();
+        return $this->plans()->latest()->first();
     }
 
     public function hasPlanByName(string $planName): bool
