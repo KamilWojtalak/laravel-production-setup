@@ -23,7 +23,7 @@
               <form action="{{ route('stripe.subscription.store') }}" method="POST">
                 @csrf
                 <!-- Add a hidden field with the lookup_key of your Price -->
-                <input type="hidden" name="lookup_key" value="test1" />
+                <input type="hidden" name="lookup_key" value="prod_QBUa5t5a2aO5jn" />
                 <button id="checkout-and-portal-button" type="submit">Checkout</button>
               </form>
 
